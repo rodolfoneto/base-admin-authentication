@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\Admin\UserAdminController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('users', UserAdminController::class)->except(['show']);
 });
 
 Route::get('/dashboard', function () {
