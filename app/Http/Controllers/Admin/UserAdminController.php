@@ -36,12 +36,18 @@ class UserAdminController extends Controller
 
     public function edit($id)
     {
-        //
+        if(!$user = $this->repository->find($id)) {
+            return redirect()->route('admin.users.index')->with('error', __('Item not founded'));
+        }
+        return view('', compact('user'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        if(!$user = $this->repository->find($id)) {
+            $user->update($request->all());
+        }
+        return redirect()->route('admin.users.index')->with('success', __('Edited'));
     }
 
     public function destroy($id)
