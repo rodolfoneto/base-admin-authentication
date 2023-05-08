@@ -311,6 +311,16 @@ return [
             'url' => 'admin/users',
             'icon' => 'fa fa-users',
         ],
+        [
+            'text' => 'Roles',
+            'url' => 'admin/roles',
+            'icon' => 'fa fa-users',
+        ],
+        [
+            'text' => 'Permissions',
+            'url' => 'admin/permissions',
+            'icon' => 'fa fa-users',
+        ],
 //        [
 //            'text' => 'blog',
 //            'url'  => 'admin/blog',

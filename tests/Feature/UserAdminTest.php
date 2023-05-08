@@ -38,4 +38,21 @@ class UserAdminTest extends TestCase
         $response = $this->delete(route('admin.users.destroy', rand(9999, 9999999)));
         $response->assertSessionHas('error');
     }
+
+    public function test_update_a_user()
+    {
+        $name = 'New Name';
+        $user = User::factory()->create();
+        $response = $this->put(route( 'admin.users.update', $user->id), compact('name'));
+        $response->assertSessionHas('success');
+        $userUpdated = User::find($user->id);
+        $this->assertEquals($name, $userUpdated->name);
+        $response->assertSessionHas('success');
+    }
+
+    public function test_update_a_unexist_user()
+    {
+        $response = $this->put(route( 'admin.users.update', PHP_INT_MAX), ['name' =>'name']);
+        $response->assertSessionHas('error');
+    }
 }

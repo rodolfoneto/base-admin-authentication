@@ -2,7 +2,11 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\UserAdminController;
+use App\Http\Controllers\Admin\ {
+    UserAdminController,
+    RoleAdminController,
+    PermissionAdminController
+};
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,6 +24,12 @@ Route::get('/', function () {
 
 Route::prefix('admin')->name('admin.')->group(function() {
     Route::resource('users', UserAdminController::class)->except(['show']);
+    Route::resource('roles', RoleAdminController::class)
+        ->except(['update', 'edit']);
+    Route::post('roles/{id}/permissions', [RoleAdminController::class, 'syncPermissions'])
+        ->name('roles.permissions');
+    Route::resource('permissions', PermissionAdminController::class)
+        ->except(['update', 'edit', 'show']);
 });
 
 Route::get('/dashboard', function () {

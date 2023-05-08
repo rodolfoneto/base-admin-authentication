@@ -90,8 +90,10 @@
     "Terms of Service": "Termos do Serviço",
     "Privacy Policy": "Política de Privacidade",
     "Permissions": "Permissões",
+    "Permission": "Permissão",
     "Created.": "Criado.",
     "Create": "Criar",
+    "Create a new": "Criar um(a)",
     "Manage API Tokens": "Gerenciador de Tokens de API",
     "Create API Token": "Criar um Token de API",
     "API tokens allow third-party services to authenticate with our application on your behalf.": "Tokens de API permitem que serviços de terceiros autentiquem-se sem precisar utilizar o login e senha do usuário. Pode-se criar um ou mais token de API e revogá-los a qualquer momento.",
@@ -135,5 +137,6 @@
     "Server": "Servidor",
     "Item not founded": "Item não encontrado",
     "Actions" : "Ações",
-    "Deleted with success": "Deletado com sucesso"
+    "Deleted with success": "Deletado com sucesso",
+    "Basic Information": "Informações Basicas"
 }
