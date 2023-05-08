@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ {
     UserAdminController,
     RoleAdminController,
-    PermissionAdminController
+    PermissionAdminController,
+    PostAdminController
 };
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::group(['middleware' => ['permission:list post']], function() {
+        Route::resource('posts', PostAdminController::class);
+    });
 });
 
 require __DIR__.'/auth.php';

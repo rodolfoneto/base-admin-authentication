@@ -7,12 +7,12 @@ use App\Http\Requests\Auth\Post\StorePostRequest;
 use App\Http\Requests\Auth\Post\UpdatePostRequest;
 use App\Models\Post;
 
-class PostController extends Controller
+class PostAdminController extends Controller
 {
 
     public function index()
     {
-        //
+        return 'SERA?';
     }
 
     public function create()
